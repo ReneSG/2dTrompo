@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  author_id: 
+  body: MyText
+  rating: 1
+  taco_id: 
+
+two:
+  author_id: 
+  body: MyText
+  rating: 1
+  taco_id: 

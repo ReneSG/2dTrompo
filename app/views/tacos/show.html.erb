@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @taco.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @taco.image %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @taco.rating %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @taco.comment %>
+</p>
+
+<p>
+  <strong>Lattitude:</strong>
+  <%= @taco.lattitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @taco.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_taco_path(@taco) %> |
+<%= link_to 'Back', tacos_path %>

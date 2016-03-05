@@ -1,0 +1,41 @@
+<%= form_for(@taco) do |f| %>
+  <% if @taco.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@taco.errors.count, "error") %> prohibited this taco from being saved:</h2>
+
+      <ul>
+      <% @taco.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br>
+    <%= f.number_field :rating %>
+  </div>
+  <div class="field">
+    <%= f.label :comment_id %><br>
+    <%= f.text_field :comment_id %>
+  </div>
+  <div class="field">
+    <%= f.label :lattitude %><br>
+    <%= f.text_field :lattitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
