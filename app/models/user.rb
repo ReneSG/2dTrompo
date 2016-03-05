@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-  belongs_to :comment
+  has_many :comment
 end
