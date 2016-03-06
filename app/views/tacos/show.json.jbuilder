@@ -1,1 +1,1 @@
-json.extract! @taco, :id, :name, :image, :rating, :comment_id, :lattitude, :longitude, :created_at, :updated_at
+json.extract! @taco, :id, :name, :image, :rating, :lattitude, :longitude, :created_at, :updated_at
