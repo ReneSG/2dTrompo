@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Author</th>
+      <th>User</th>
       <th>Body</th>
       <th>Rating</th>
       <th>Taco</th>
@@ -16,7 +16,7 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
-        <td><%= comment.author %></td>
+        <td><%= comment.user %></td>
         <td><%= comment.body %></td>
         <td><%= comment.rating %></td>
         <td><%= comment.taco %></td>
