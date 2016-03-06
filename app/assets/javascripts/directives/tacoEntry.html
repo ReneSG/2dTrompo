@@ -1,0 +1,15 @@
+<div class="entry-header">
+  {{taco}}<br>
+  <img src="assets/images/{{img}}" alt="assets/images/taco.png" class= "pic stand"><br>
+</div>
+<div class="entry-rating">
+  <div ng-repeat="i in getRating(rating)">
+    <img src="assets/images/chile.png" alt="chile" class= "pic chile">
+  </div>
+  <div ng-repeat="i in getNotRating(rating)">
+    <img src="assets/images/notchile.png" alt="notchile" class= "pic chile">
+  </div>
+</div>
+<div class="entry-comment">
+  {{comment}}
+</div> 
