@@ -1,0 +1,233 @@
+@media screen and (max-width: 550px){
+    .sidebar, .new{
+        display:none;
+        width:100vw;
+    }
+    .on{
+        display:block;
+    }
+    .off{
+        display:none;
+    }
+    .main{
+        width:100vw;
+        height:90vh;
+    }
+}
+
+@media screen and (min-width: 550px) and (max-width: 1125px){
+    .main{
+        width:60vw;
+    }
+    .btn-sidebar{
+        display:none;
+    }
+    .sidebar, .new{
+        width: 15vw;
+    }
+}
+
+@media screen and (min-width: 550px){
+    .btn-sidebar{
+        display:none;
+    }
+    .main{
+        width: 100vw;
+        height: 85vh;
+    }
+    .ten.columns {
+        width: 86.667%;
+    }
+    .sidebar, .new{
+        width: 15vw;
+    }
+}
+
+@media screen and (max-height: 630px){
+    .review-container2{
+        display:none;
+    }
+}
+
+html, body {
+    background-color: #02A0B6;
+    margin: 0px;
+    height:100%;
+}
+div{
+    margin: 0;
+    border: 0;
+}
+
+.btn-sidebar{
+    padding: 5px;
+    font-size: 10px;
+    float: left;
+    margin: 10px -10px 0px 5px;
+    height: 50px;
+    width:75px;
+}
+
+.navbar {
+    text-align: center;
+    font-size: 30px;
+    background-color: #FF512D;
+    left:0; right:0;
+    height: 60px;
+    width:100%;
+    position: fixed;
+    z-index: 3;
+}
+
+.columns {
+   margin:0;
+}
+.sidebar {
+    background-color: #FFA700;
+    margin-top:60px;
+    left:0;
+    top:92px;
+    bottom: 0;
+    min-width:150px;
+    max-height:800px;
+    height: 85vh;
+    font-size: 20px;
+    text-align: center;
+    z-index: 2;
+}
+
+hr {
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+
+.chile {
+    margin-bottom: 0px;
+}
+
+.review1 {
+    margin-top:0px;
+    margin-left: 10px;
+    text-align: left;
+}
+.review2 {
+    margin-top:0px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 14px;
+}
+.comment {
+    font-size: 12px;
+    text-indent: 8px;
+}
+
+.pic {
+    border-radius: 10px;
+}
+
+.stand {
+    height: 100px;
+    width: 90%;
+    max-width: 160px;
+    min-width: 130px;
+}
+.logo {
+    height:33px;
+    width:40px;
+}
+.chile {
+    height: 20px;
+    width: 15px;
+}
+
+img{
+    width:100%;
+    height:100%;
+}
+
+.main{
+    margin-top: 60px;
+}
+
+.new{
+    float:right;
+    background-color: #FFA700;
+    margin-top:60px;
+    left:0;
+    top:92px;
+    bottom: 0;
+    min-width:150px;
+    max-height:800px;
+    height: 85vh;
+    font-size: 20px;
+    text-align: center;
+}
+.star-rating {
+  font-size: 0;
+  white-space: nowrap;
+  display: inline-block;
+  width: 50%;
+  height: 30px;
+  overflow: hidden;
+  position: relative;
+  background-image: url("../assets/images/notchile.png");
+  background-size: contain;
+}
+.star-rating i {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 20%;
+  z-index: 1;
+  background-image: url("../assets/images/chile.png");
+  background-size: contain;
+}
+.star-rating input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  opacity: 0;
+  display: inline-block;
+  width: 20%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+  position: relative;
+}
+.star-rating input:hover + i,
+.star-rating input:checked + i {
+  opacity: 1;
+}
+.star-rating i ~ i {
+  width: 40%;
+}
+.star-rating i ~ i ~ i {
+  width: 60%;
+}
+.star-rating i ~ i ~ i ~ i {
+  width: 80%;
+}
+.star-rating i ~ i ~ i ~ i ~ i {
+  width: 100%;
+}
+input{
+    width:100%;
+}
+input:nth-of-type(4){
+    width: 100px;
+    background-color: white;
+}
+.footer {
+    background-color: #09BBD4;
+    clear: both;
+    height: 40px;
+    margin: 0px;
+    vertical-align: text-bottom;
+    text-align: center;
+}
