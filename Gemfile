@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'angular-rails-templates'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'angular_rails_csrf'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

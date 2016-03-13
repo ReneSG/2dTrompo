@@ -1,0 +1,19 @@
+{:uriI"file://app/assets/javascripts/directives/tacoEntry.html?type=text/ng-html&id=c0f6d9fc93530d1640e06efcf4dd2b4a0ac68106365332d723587f280a9ed033:ET:load_pathI"app/assets/javascripts;T:filenameI"5app/assets/javascripts/directives/tacoEntry.html;T:	nameI"directives/tacoEntry;T:logical_pathI"directives/tacoEntry.html;T:content_typeI"text/ng-html;T:sourceI"â<div class="entry-header">
+  {{taco}}<br>
+  <img src="public/assets/images/{{img}}" alt="assets/images/taco.png" class= "pic stand"><br>
+</div>
+<div class="entry-rating">
+  <div ng-repeat="i in getRating(rating)">
+    <img src="assets/images/chile.png" alt="chile" class= "pic chile">
+  </div>
+  <div ng-repeat="i in getNotRating(rating)">
+    <img src="assets/images/notchile.png" alt="notchile" class= "pic chile">
+  </div>
+</div>
+<div class="entry-comment">
+  {{comment}}
+</div> ;T:metadata{	:dependencieso:Set:
+@hash{
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"8processors:type=text/ng-html&file_type=text/ng-html;TTI"Cfile-digest://app/assets/javascripts/directives/tacoEntry.html;TT:charsetI"
+utf-8;F:digest"%œ0]nÖ*^ÿ–+6>ß½½`€\-­RšÂ:lengthiâ:dependencies_digest"%´ÕŞ;‡Vl2sH½ÈCÏyˆ–Iš÷3zû¾×œ0ûŒ:idI"Ec0f6d9fc93530d1640e06efcf4dd2b4a0ac68106365332d723587f280a9ed033;F:
+mtimel+ÃÛV

@@ -6,6 +6,7 @@ myApp.directive('tacoEntry', function() {
 			img: '=',
 			taco: '=',
 			rating: '=',
+			latlong: '=',
 			comment: '='
 		},
 		templateUrl: 'home/tacoEntry.html',
