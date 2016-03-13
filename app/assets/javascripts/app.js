@@ -29,6 +29,14 @@ myApp.controller('MapsController', ['$scope', 'dataStorage', function($scope, da
 			latlng: {lat: 25.654278, lng: -100.293509},
 			title: "Taquetos"
 
+		},
+		{
+			latlng: {lat: 25.634278, lng: -100.273509},
+			title: "Taquetos 2"
+		},
+		{
+			latlng: {lat: 25.648866, lng: -100.292253},
+			title: "taquetos 3"
 		}];
 
 	var infoWindow = new google.maps.InfoWindow({map: map});
@@ -41,40 +49,6 @@ myApp.controller('MapsController', ['$scope', 'dataStorage', function($scope, da
 	  }
 	];
 
-	//Instance of map
-	map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 17
-	});
-
-	$scope.map = map.setOptions({styles: myStyles}); //Load map myStyles configuration
-
-    if(navigator.geolocation) {
- 		 navigator.geolocation.getCurrentPosition(function(position) {
- 		 var pos = {
-  		  lat: position.coords.latitude,
-   		 lng: position.coords.longitude
-   		 };
-   		 console.log(pos);
-   		 currentPos = pos; //Define current position
-
- 		 infoWindow.setPosition(pos);
- 		 map.setCenter(pos);
- 		 }, function() {
-   		 handleLocationError(true, infoWindow, map.getCenter());
- 		 });
- 		 } else {
- 		 // Browser doesn't support Geolocation
- 		 handleLocationError(false, infoWindow, map.getCenter());
-  		 } 
-  	//End of maps declaration
-  	//Error maps function
-	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  	infoWindow.setPosition(pos);
- 	infoWindow.setContent(browserHasGeolocation ?
-                'Error: The Geolocation service failed.' :
-                'Error: Your browser doesn\'t support geolocation.');
-}
 	//GIVE CURRENT POSITION
 	$scope.getPosition = function(){
 		return currentPos;
@@ -83,28 +57,28 @@ myApp.controller('MapsController', ['$scope', 'dataStorage', function($scope, da
 	//ADD MARKERS
 	$scope.makeMarkers = function(){
 		//Get markers from database
-			console.log(currentPos);
-
+		console.log(jsonTest.length);
 		for(var j = 0; j<jsonTest.length; j++){
-			
-			if((Math.abs(jsonTest[j].latlng.lat - currentPos.lat) < 0.1) && (Math.abs(jsonTest[j].latlng.lng - currentPos.lng) < 0.1)){
-
-				usedMarkers.push(marker);
-			
+			console.log(currentPos);
+			if((Math.abs(Math.abs(jsonTest[j].latlng.lat) - Math.abs(currentPos.lat))) < 0.001 && (Math.abs(Math.abs(jsonTest[j].latlng.lng) - Math.abs(currentPos.lng)) < 0.001)){
+				usedMarkers.push(jsonTest[j]);
+				console.log(usedMarkers.length);
 			}
 		}
 
 		for(var i = 0; i<usedMarkers.length; i++){
 
-			var currentMarker = usedMarkers;
+			if(usedMarkers[i] != displayedMarkers[i]){
+				var currentMarker = jsonTest[i];
 
-			displayedMarkers[i]= new google.maps.Marker({
-		    position: currentMarker.latlng,
-		    map: map,
-		    title: currentMarker.title
-		  	});
+				displayedMarkers[i]= new google.maps.Marker({
+			    position: currentMarker.latlng,
+			    map: map,
+			    title: currentMarker.title
+			  	});
 
-		  	usedMarkers[i].setMap(map);
+			  	displayedMarkers[i].setMap(map);
+			  }
 		}
 
 		$scope.addOnClickToMarkers();
@@ -134,5 +108,48 @@ myApp.controller('MapsController', ['$scope', 'dataStorage', function($scope, da
 			}
 		}
 	}
+
+	//Instance of map
+	var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 17
+	});
+
+	$scope.map = function(){ 
+
+	map.setOptions({styles: myStyles}); //Load map myStyles configuration
+
+    if(navigator.geolocation) {
+ 		 navigator.geolocation.getCurrentPosition(function(position) {
+ 		 var pos = {
+  		  lat: position.coords.latitude,
+   		 lng: position.coords.longitude
+   		 };
+   		 currentPos = {
+  		  lat: position.coords.latitude,
+   		 lng: position.coords.longitude
+   		 }; //Define current position
+
+ 		 infoWindow.setPosition(pos);
+ 		 map.setCenter(pos);
+
+ 		 $scope.makeMarkers();
+
+ 		 }, function() {
+   		 handleLocationError(true, infoWindow, map.getCenter());
+ 		 });
+ 		 } else {
+ 		 // Browser doesn't support Geolocation
+ 		 handleLocationError(false, infoWindow, map.getCenter());
+  		 }
+
+  	//End of maps declaration
+  	//Error maps function
+	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  	infoWindow.setPosition(pos);
+ 	infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+}}();
 
 }]);
