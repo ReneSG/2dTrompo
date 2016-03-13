@@ -22,6 +22,14 @@ myApp.controller('MapsController', ['$scope', 'dataStorage', function($scope, da
 	//Current position
 	var currentPos;
 	var displayedMarkers = [];
+	var usedMarkers = [];
+
+	var jsonTest = [
+		{
+			latlng: {lat: 25.654278, lng: -100.293509},
+			title: "Taquetos"
+
+		}];
 
 	var infoWindow = new google.maps.InfoWindow({map: map});
 	var myStyles =[{
@@ -47,11 +55,10 @@ myApp.controller('MapsController', ['$scope', 'dataStorage', function($scope, da
   		  lat: position.coords.latitude,
    		 lng: position.coords.longitude
    		 };
-
+   		 console.log(pos);
    		 currentPos = pos; //Define current position
 
  		 infoWindow.setPosition(pos);
- 		 infoWindow.setContent('You are here');
  		 map.setCenter(pos);
  		 }, function() {
    		 handleLocationError(true, infoWindow, map.getCenter());
@@ -64,33 +71,68 @@ myApp.controller('MapsController', ['$scope', 'dataStorage', function($scope, da
   	//Error maps function
 	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   	infoWindow.setPosition(pos);
- 	 infoWindow.setContent(browserHasGeolocation ?
+ 	infoWindow.setContent(browserHasGeolocation ?
                 'Error: The Geolocation service failed.' :
                 'Error: Your browser doesn\'t support geolocation.');
 }
 	//GIVE CURRENT POSITION
-	$scope.givePos = function(){
+	$scope.getPosition = function(){
 		return currentPos;
 	};
 
 	//ADD MARKERS
 	$scope.makeMarkers = function(){
 		//Get markers from database
+			console.log(currentPos);
 
-		for(var i = 0; i<markers.length(); i++){
+		for(var j = 0; j<jsonTest.length; j++){
+			
+			if((Math.abs(jsonTest[j].latlng.lat - currentPos.lat) < 0.1) && (Math.abs(jsonTest[j].latlng.lng - currentPos.lng) < 0.1)){
 
-			displayedMarkers[i]= new google.maps.Marker({
-		    position: LatLng,
-		    map: map,
-		    title: " "
-		  	});
-		  	displayedMarkers[i].setMap(map);
+				usedMarkers.push(marker);
+			
+			}
 		}
 
+		for(var i = 0; i<usedMarkers.length; i++){
+
+			var currentMarker = usedMarkers;
+
+			displayedMarkers[i]= new google.maps.Marker({
+		    position: currentMarker.latlng,
+		    map: map,
+		    title: currentMarker.title
+		  	});
+
+		  	usedMarkers[i].setMap(map);
+		}
+
+		$scope.addOnClickToMarkers();
 	}
 
 	//UPDATE MAP WHEN USER ADDS LOCATION
 	$scope.mapUpdate = function(){
 
 	};
+
+	$scope.markersUpdate = function(){
+
+		$scope.addOnClickToMarkers();
+	}
+
+	$scope.userAddMarker = function(userMarker){
+		currentMarker.push(userMarker);
+
+		$scope.markersUpdate;
+	}
+
+	$scope.addOnClickToMarkers = function(){
+
+		for(var i = 0; i < usedMarkers.length; i++){
+			usedMarkers[i].OnClick = function(){
+				//ADD ON CLICK
+			}
+		}
+	}
+
 }]);
