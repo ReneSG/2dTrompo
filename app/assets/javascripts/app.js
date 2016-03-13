@@ -19,8 +19,11 @@ myApp.config( function($stateProvider, $urlRouterProvider) {
 //MAPSCONTROLLER
 myApp.controller('MapsController', ['$scope', 'dataStorage', function($scope, dataStorage){
 
-	var infoWindow = new google.maps.InfoWindow({map: map});
+	//Current position
+	var currentPos;
+	var displayedMarkers = [];
 
+	var infoWindow = new google.maps.InfoWindow({map: map});
 	var myStyles =[{
 	  featureType: "poi",
 	  elementType: "labels",
@@ -30,13 +33,13 @@ myApp.controller('MapsController', ['$scope', 'dataStorage', function($scope, da
 	  }
 	];
 
-	$scope.map = 
+	//Instance of map
 	map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -34.397, lng: 150.644},
     zoom: 17
 	});
 
-	map.setOptions({styles: myStyles}); //Load map myStyles configuration
+	$scope.map = map.setOptions({styles: myStyles}); //Load map myStyles configuration
 
     if(navigator.geolocation) {
  		 navigator.geolocation.getCurrentPosition(function(position) {
@@ -44,6 +47,8 @@ myApp.controller('MapsController', ['$scope', 'dataStorage', function($scope, da
   		  lat: position.coords.latitude,
    		 lng: position.coords.longitude
    		 };
+
+   		 currentPos = pos; //Define current position
 
  		 infoWindow.setPosition(pos);
  		 infoWindow.setContent('You are here');
@@ -56,7 +61,6 @@ myApp.controller('MapsController', ['$scope', 'dataStorage', function($scope, da
  		 handleLocationError(false, infoWindow, map.getCenter());
   		 } 
   	//End of maps declaration
-
   	//Error maps function
 	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   	infoWindow.setPosition(pos);
@@ -64,4 +68,29 @@ myApp.controller('MapsController', ['$scope', 'dataStorage', function($scope, da
                 'Error: The Geolocation service failed.' :
                 'Error: Your browser doesn\'t support geolocation.');
 }
+	//GIVE CURRENT POSITION
+	$scope.givePos = function(){
+		return currentPos;
+	};
+
+	//ADD MARKERS
+	$scope.makeMarkers = function(){
+		//Get markers from database
+
+		for(var i = 0; i<markers.length(); i++){
+
+			displayedMarkers[i]= new google.maps.Marker({
+		    position: LatLng,
+		    map: map,
+		    title: " "
+		  	});
+		  	displayedMarkers[i].setMap(map);
+		}
+
+	}
+
+	//UPDATE MAP WHEN USER ADDS LOCATION
+	$scope.mapUpdate = function(){
+
+	};
 }]);
