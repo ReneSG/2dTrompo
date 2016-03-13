@@ -1,0 +1,54 @@
+<<<<<<< HEAD
+<div class="row navbar">
+  <button class="btn-sidebar">Taquerias</button>
+  <p id="title">2D <img src="assets/images/taco.png" alt="taco" class="pic logo"> Trompo</p>
+</div>
+<div class="row">
+  	<div class="two columns sidebar animated">
+    	Puestos cercanos
+    	<div ng-repeat="taco in tacos">
+    		<taco-entry img="taco.img" taco="taco.taco" rating="taco.rating" comment="taco.comment">
+    	</div>
+	</div>
+    <div class="eight columns main" id="map">
+	</div>
+    <div class="two columns new animated">
+    	   ¡Contribuye!
+          <form>
+        	   Taquería:<br>
+        	   <input type="text" id="taco" ng-model="taco"><br>
+              Comentario:<br>
+              <input type="text" id="com" ng-model="comment"><br>
+              <span class="star-rating">
+              <input type="radio" name="rating" value="1" ng-model="r1"><i></i>
+              <input type="radio" name="rating" value="1" ng-model="r2"><i></i>
+              <input type="radio" name="rating" value="1" ng-model="r3"><i></i>
+              <input type="radio" name="rating" value="1" ng-model="r4"><i></i>
+              <input type="radio" name="rating" value="1" ng-model="r5"><i></i>
+            </span>
+            <button id="sub_but">Submit</button>
+          </form>
+          <form style="display: none">
+              Comentario:<br>
+              <input type="text" id="com" ng-model="comment"><br>
+              <span class="star-rating">
+              <input type="radio" name="rating" value="1" ng-model="r1"><i></i>
+              <input type="radio" name="rating" value="1" ng-model="r2"><i></i>
+              <input type="radio" name="rating" value="1" ng-model="r3"><i></i>
+              <input type="radio" name="rating" value="1" ng-model="r4"><i></i>
+              <input type="radio" name="rating" value="1" ng-model="r5"><i></i>
+            </span>
+            <button id="sub_but">Submit</button>
+          </form>  
+    </div>
+</div>
+<div ng-controller="MapsController">
+  
+</div>
+
+<div class="footer">
+	Phaggots &copy 2016
+</div>
+=======
+Top kek
+>>>>>>> coolbranch
