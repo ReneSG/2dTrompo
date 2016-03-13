@@ -50,7 +50,7 @@
 }
 
 html, body {
-    background-color: #02A0B6;
+    background-color: #8DD3EB;
     margin: 0px;
     height:100%;
 }
@@ -71,7 +71,7 @@ div{
 .navbar {
     text-align: center;
     font-size: 30px;
-    background-color: #FF512D;
+    background-color: #FF6666;
     left:0; right:0;
     height: 60px;
     width:100%;
@@ -82,8 +82,9 @@ div{
 .columns {
    margin:0;
 }
+
 .sidebar {
-    background-color: #FFA700;
+    background-color: #FFC266;
     margin-top:60px;
     left:0;
     top:92px;
@@ -155,7 +156,7 @@ img{
 
 .new{
     float:right;
-    background-color: #FFA700;
+    background-color: #FFC266;
     margin-top:60px;
     left:0;
     top:92px;
