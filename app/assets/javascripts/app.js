@@ -57,19 +57,17 @@ myApp.controller('MapsController', ['$scope', 'dataStorage', function($scope, da
 	//ADD MARKERS
 	$scope.makeMarkers = function(){
 		//Get markers from database
-		console.log(jsonTest.length);
+
 		for(var j = 0; j<jsonTest.length; j++){
-			console.log(currentPos);
-			if((Math.abs(Math.abs(jsonTest[j].latlng.lat) - Math.abs(currentPos.lat))) < 0.001 && (Math.abs(Math.abs(jsonTest[j].latlng.lng) - Math.abs(currentPos.lng)) < 0.001)){
+			if((Math.abs(Math.abs(jsonTest[j].latlng.lat) - Math.abs(currentPos.lat))) < 0.005 && (Math.abs(Math.abs(jsonTest[j].latlng.lng) - Math.abs(currentPos.lng)) < 0.005)){
 				usedMarkers.push(jsonTest[j]);
-				console.log(usedMarkers.length);
 			}
 		}
 
 		for(var i = 0; i<usedMarkers.length; i++){
 
 			if(usedMarkers[i] != displayedMarkers[i]){
-				var currentMarker = jsonTest[i];
+				var currentMarker = usedMarkers[i];
 
 				displayedMarkers[i]= new google.maps.Marker({
 			    position: currentMarker.latlng,
